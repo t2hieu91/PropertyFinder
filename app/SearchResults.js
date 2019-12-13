@@ -11,7 +11,7 @@ import {
 
 class ListItem extends React.PureComponent {
   _onPress = () => {
-    this.props.onPressItem(this.props.index);
+    this.props.onPressItem(this.props.item, this.props.index);
   };
 
   render() {
@@ -50,8 +50,8 @@ export default class SearchResults extends React.Component {
     <ListItem item={item} index={index} onPressItem={this._onPressItem} />
   );
 
-  _onPressItem = index => {
-    Alert.alert('Pressed', 'Row:' + index, [
+  _onPressItem = (item, index) => {
+    Alert.alert('Pressed Row: ' + index, 'Keyword: \n' + item.keywords, [
       {
         text: 'Cancel',
         onPress: () => console.log('Cancel Pressed'),
